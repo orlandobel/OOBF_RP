@@ -13,20 +13,24 @@ public class Patron {
     
     private double vector[];
     private String clase;
+    private String claseResultante;
     
     public Patron(int n) {
         this.vector = new double[n];
         this.clase = "Desconosido";
+        this.clase = "Desconosido";
     }
     
-    public Patron(int n, String clase) {
-        this.vector = new double[n];
+    public Patron(double[] n, String clase) {
+        this.vector = n;
         this.clase = clase;
+        this.clase = "Desconosido";
     }
     
     public Patron(Patron p) {
         this.vector = p.getVector().clone();
         this.clase = p.getClase();
+        this.clase = "Desconosido";
     }
 
     public double[] getVector() {
@@ -43,6 +47,14 @@ public class Patron {
 
     public void setClase(String clase) {
         this.clase = clase;
+    }
+
+    public String getClaseResultante() {
+        return claseResultante;
+    }
+
+    public void setClaseResultante(String claseResultante) {
+        this.claseResultante = claseResultante;
     }
     
     
