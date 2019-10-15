@@ -5,6 +5,7 @@
  */
 package Clasificadores;
 
+import Clasificadores.Herramientas.Patron;
 import java.util.ArrayList;
 
 /**
@@ -15,6 +16,7 @@ public interface ClasificadorSupervisado {
     
     void entrenar(ArrayList<Patron> instancias);
     
-    void clasificar();
+    void clasificar(Patron patron);
+    void clasificar(ArrayList<Patron> patrones);
     
 }

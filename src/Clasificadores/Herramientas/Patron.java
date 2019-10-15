@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Clasificadores;
+package Clasificadores.Herramientas;
 
 /**
  *
@@ -18,19 +18,19 @@ public class Patron {
     public Patron(int n) {
         this.vector = new double[n];
         this.clase = "Desconosido";
-        this.clase = "Desconosido";
+        this.claseResultante = "Desconosido";
     }
     
     public Patron(double[] n, String clase) {
         this.vector = n;
         this.clase = clase;
-        this.clase = "Desconosido";
+        this.claseResultante = "Desconosido";
     }
     
     public Patron(Patron p) {
         this.vector = p.getVector().clone();
         this.clase = p.getClase();
-        this.clase = "Desconosido";
+        this.claseResultante = "Desconosido";
     }
 
     public double[] getVector() {
@@ -57,5 +57,16 @@ public class Patron {
         this.claseResultante = claseResultante;
     }
     
-    
+    @Override
+    public boolean equals(Object o) {
+        Patron aux = (Patron) o;
+        
+        for(int x=0;x<this.vector.length;x++) {
+            if(this.vector[x] != aux.getVector()[x]) {
+                return false;
+            }
+        }
+        
+        return true;
+    }
 }

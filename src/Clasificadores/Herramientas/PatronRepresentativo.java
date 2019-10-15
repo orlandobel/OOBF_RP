@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Clasificadores;
+package Clasificadores.Herramientas;
 
 /**
  *
@@ -19,6 +19,7 @@ public class PatronRepresentativo extends Patron {
     
     public PatronRepresentativo(Patron a) {
         super(a.getVector().length);
+        super.setClase(a.getClase());
         this.contador = 0;
         
         acumular(a);
@@ -37,5 +38,10 @@ public class PatronRepresentativo extends Patron {
         }
         
         this.contador = 0;
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        return super.equals(o);
     }
 }
