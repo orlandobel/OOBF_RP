@@ -7,6 +7,8 @@ package Persistencia;
 
 import Clasificadores.CMeans;
 import Clasificadores.Herramientas.Herramientas;
+import Clasificadores.Herramientas.Patron;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,10 +16,12 @@ import Clasificadores.Herramientas.Herramientas;
  */
 public class noSupervizado {
     public static void main(String[] args) {
-        int[] config = {1,1,1,1};
-        Herramientas.leerDatos(config);
+        //int[] config = {1,1,1,1};
+        Herramientas.leerDatos();
         
-        CMeans cm = new CMeans(5);
-        cm.entrenar(Herramientas.instancias);
+        CMeans cm = new CMeans(3);
+        cm.entrenar(Herramientas.instancias,new int[]{0,99,149});
+        ArrayList<Patron> aux = (ArrayList<Patron>)Herramientas.instancias.clone();
+        cm.clasificar(aux);
     }
 }

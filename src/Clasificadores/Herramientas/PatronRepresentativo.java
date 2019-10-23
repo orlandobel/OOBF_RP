@@ -13,9 +13,11 @@ public class PatronRepresentativo extends Patron {
     
     private int contador;
     
-    /*public PatronRepresentativo(int n) {
-        super(n);
-    }*/
+    public PatronRepresentativo(Patron a, String n) {
+        super(a.getVector(), n);
+        contador = 0;
+        acumular(a);
+    }
     
     public PatronRepresentativo(Patron a) {
         super(a.getVector().length);
@@ -43,5 +45,16 @@ public class PatronRepresentativo extends Patron {
     @Override
     public boolean equals(Object o) {
         return super.equals(o);
+    }
+    
+    @Override
+    public String toString() {
+        String aux = "Valores: {";
+        for(double a: this.getVector()) {
+            aux+= " "+a+",";
+        }
+        aux += "} ->"+ this.getClase();
+        
+        return aux;
     }
 }

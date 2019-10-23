@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Clustering;
+package Clustering.HerramientasCluster;
 
 import java.awt.Graphics2D;
 import java.awt.Image;
