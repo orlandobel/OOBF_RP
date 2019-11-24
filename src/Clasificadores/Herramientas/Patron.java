@@ -32,6 +32,12 @@ public class Patron {
         this.clase = p.getClase();
         this.claseResultante = "Desconosido";
     }
+    
+    public Patron(double[] vector) {
+        this.vector = vector;
+        this.clase = "Desconosido";
+        this.claseResultante = "Desconocido";
+    }
 
     public double[] getVector() {
         return vector;

@@ -6,6 +6,7 @@
 package Clasificadores;
 
 import Clasificadores.Herramientas.Herramientas;
+import Clasificadores.Herramientas.MatrizConfucion;
 import Clasificadores.Herramientas.Patron;
 import Clasificadores.Herramientas.PatronRepresentativo;
 import java.util.ArrayList;
@@ -20,14 +21,13 @@ public class CMeans implements Clasificador{
     private PatronRepresentativo[] centroides;
     
     public CMeans(int c) {
-        if(c>15) this.c=15;
-        else this.c = c;
+        this.c = c;
         this.centroides= new PatronRepresentativo[c];
     }
 
     public CMeans(PatronRepresentativo[] centroides, int c) {
         this.centroides = centroides;
-        
+        this.c = c;
     }
     
     public void entrenar(ArrayList<Patron> interfaces, int pos[]){
@@ -51,10 +51,10 @@ public class CMeans implements Clasificador{
                 this.centroides[x]= new PatronRepresentativo(interfaces.get(pos));
                 this.centroides[x].setClase(""+x);
                 x++;
-                System.out.println(x);
+                //System.out.println(x);
             }
         }
-        System.out.print("");
+        //System.out.print("");
     }
 
     @Override
@@ -71,6 +71,7 @@ public class CMeans implements Clasificador{
            nuevos = reAjustarCentroides(patrones);
            
        }while(diferenciaCentroides(nuevos));
+       
     }
 
     private boolean Exist(Patron get) {
@@ -90,7 +91,6 @@ public class CMeans implements Clasificador{
                 if(distC>nDistancia){
                     distC=nDistancia;
                     e.setClase(this.centroides[i].getClase());
-                    
                 }
             }
         });

@@ -50,9 +50,9 @@ public class ImageAdapter {
             PatronPixel pxp = (PatronPixel)aux;
             String clase = pxp.getClase();
             double vector[] = new double[]{0,0,0};
-            representativos:for(int i=0;i<r.length;i++) {
-                if(clase.equals(r[i].getClase())) {
-                    vector = r[i].getVector();
+            representativos:for(PatronRepresentativo pr: r) {
+                if(clase.equals(pr.getClase())) {
+                    vector = pr.getVector();
                     break representativos;
                 }
             }

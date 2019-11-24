@@ -23,7 +23,6 @@ public class ClusteringMain {
         
         Image io = ImageManager.openImage();
         JFrameImage jframe = new JFrameImage(io);
-        jframe.setVisible(true);
         ArrayList<Patron> instancias = ImageAdapter.obtenerInstancias(io);
         CMeans cm = new CMeans(10);
         cm.entrenar(instancias);
@@ -31,7 +30,6 @@ public class ClusteringMain {
         
         Image imc = ImageAdapter.generarImagenClosterizada(cm.getCentroides(), instancias, new Dimension(io.getWidth(null),io.getHeight(null)));
         JFrameImage JframeC = new JFrameImage(imc);
-        JframeC.setVisible(true);
         
     }
 }
